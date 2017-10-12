@@ -10,7 +10,7 @@
       "matches": [
         "https://www.facebook.com/*", "http://www.facebook.com/*"
       ],
-      "js": ["jquery-3.2.1.min.js", "content.js"]
+      "js": ["content.js"]
     }
   ],
   "browser_action": {
