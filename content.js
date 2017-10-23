@@ -9,7 +9,7 @@
 var storyContainerClasses = ["_5jmm", "_5pcr"];
 
 var sheet = document.styleSheets[0];
-sheet.insertRule('.dimmed:after {content: " "; z-index: 10; display: block; position: absolute; height: 100%; top: 0; left: 0; right: 0; background: rgba(0, 0, 0, 0.8);}', sheet.cssRules.length);
+sheet.insertRule('.dimmed:after {content: " "; z-index: 10; display: block; position: absolute; height: 100%; top: 0; left: 0; right: 0; background: rgba(255, 255, 255, 0.75); filter: blur(100px)}', sheet.cssRules.length);
 sheet.insertRule('.dimmed {position: relative;}', sheet.cssRules.length);
 
 var editedPosts = new Array();
@@ -18,8 +18,6 @@ var editedPosts = new Array();
 var bannedDomains = ["https://www.facebook.com/TheOnion/"];
 
 function cleanNewsFeed(){
-
-
     chrome.storage.sync.get("clean_news_feed", function(data){
         if (data["clean_news_feed"]){
             // find all potential posts
