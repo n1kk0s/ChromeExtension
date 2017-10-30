@@ -1,20 +1,16 @@
 // content.js
-// Has access to the current page.
-// Talks to the background.js if it needs to do anything crazy
-// A js file that runs in the context of webpages
-// Runs immediately when you visit a page allow in the manifest
-// under content_scripts > matches
-
 
 var storyContainerClasses = ["_5jmm", "_5pcr"];
 
 var sheet = document.styleSheets[0];
-sheet.insertRule('.dimmed:after {content: " "; z-index: 10; display: block; position: absolute; height: 100%; top: 0; left: 0; right: 0; background: rgba(255, 255, 255, 0.75); filter: blur(100px)}', sheet.cssRules.length);
+sheet.insertRule('.dimmed:after {content: " "; z-index: 10; display: block; position: absolute; height: 100%; top: 0; left: 0; right: 0; background: rgba(255, 255, 255, 0.75); }', sheet.cssRules.length);
 sheet.insertRule('.dimmed {position: relative;}', sheet.cssRules.length);
+// overlay style sheet rules
+sheet.insertRule('#overlayDiv {position: absolute; z-index: 11; height: 100%; top: 0; left: 0; right: 0; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);}', sheet.cssRules.length);
 
 var editedPosts = new Array();
 
-// This is where we hardcode the URLS to ban
+// This is where we hardcode the URLS to ban....for now
 var bannedDomains = ["https://www.facebook.com/TheOnion/"];
 
 function cleanNewsFeed(){
@@ -41,7 +37,18 @@ function checkLinks(item){
             if (href.indexOf(domain.toLowerCase()) != -1 && (itemClassName.indexOf('dimmed') == -1)){
                 // edit the post here
                 editedPosts[editedPosts.length] = (item.className += ' dimmed');
-                console.log(itemClassName);
+                // create an unique overlay with a link to the actual post
+                var div = document.createElement( 'div' );
+                div.id = 'overlayDiv';
+
+                // get the ACTUAL link to the post
+                var postLink = item.getElementsByClassName("_52c6")["0"].attributes[1].nodeValue;
+
+                // edit the string here to edit the overlay div HTML
+                div.innerHTML = '<center><h2>This article was flagged as satire. It may be unreliable.</h2><h4>To read, click <a href = "' + postLink +'"> here. </a> </h4></center>';
+                // This is where we add the div.
+                item.appendChild(div);
+
             }
         });
     });
