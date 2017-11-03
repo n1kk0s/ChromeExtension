@@ -10,6 +10,13 @@ sheet.insertRule('#overlayDiv {position: absolute; z-index: 11; height: 100%; to
 // make class one for the header
 // make class one for the subheader
 
+var style = document.createElement('link');
+style.rel = 'stylesheet';
+style.type = 'text/css';
+style.href = chrome.extension.getURL('overlay.css');
+(document.head||document.documentElement).appendChild(style);
+
+
 var editedPosts = new Array();
 
 // This is where we hardcode the URLS to ban....for now
@@ -47,7 +54,7 @@ function checkLinks(item){
                 var postLink = item.getElementsByClassName("_52c6")["0"].attributes[1].nodeValue;
 
                 // edit the string here to edit the overlay div HTML
-                div.innerHTML = '<center><h1>This article was flagged as satire. It may be unreliable.</h1><h4>To read, click <a href = "' + postLink +'"> here. </a> </h4></center>';
+                div.innerHTML = '<center><h1 class="overlay">This article was flagged as satire. It may be unreliable.</h1><h4 class="overlay">To read, click <a href = "' + postLink +'"> here. </a> </h4></center>';
                 // This is where we add the div.
                 item.appendChild(div);
 
