@@ -7,6 +7,8 @@ sheet.insertRule('.dimmed:after {content: " "; z-index: 10; display: block; posi
 sheet.insertRule('.dimmed {position: relative;}', sheet.cssRules.length);
 // overlay style sheet rules
 sheet.insertRule('#overlayDiv {position: absolute; z-index: 11; height: 100%; top: 0; left: 0; right: 0; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);}', sheet.cssRules.length);
+// make class one for the header
+// make class one for the subheader
 
 var editedPosts = new Array();
 
@@ -45,7 +47,7 @@ function checkLinks(item){
                 var postLink = item.getElementsByClassName("_52c6")["0"].attributes[1].nodeValue;
 
                 // edit the string here to edit the overlay div HTML
-                div.innerHTML = '<center><h2>This article was flagged as satire. It may be unreliable.</h2><h4>To read, click <a href = "' + postLink +'"> here. </a> </h4></center>';
+                div.innerHTML = '<center><h1>This article was flagged as satire. It may be unreliable.</h1><h4>To read, click <a href = "' + postLink +'"> here. </a> </h4></center>';
                 // This is where we add the div.
                 item.appendChild(div);
 
