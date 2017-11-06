@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Source Alert",
-  "version": "0.2",
+  "version": "0.3",
   "background": {
     "scripts": ["background.js"]
   },
@@ -24,5 +24,7 @@
     "tabs",
     "storage"
   ],
-  "web_accessible_resources": ["overlay.css"]
+  "web_accessible_resources": [
+    "overlay.css",
+    "Oswald-Regular.ttf"]
 }

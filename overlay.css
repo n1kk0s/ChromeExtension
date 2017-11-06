@@ -1,20 +1,18 @@
-/* @font-face { */
-/*     font-family: "Oswald"; */
-/*     font-style: normal; */
-/*     font-weight: normal; */
-/*     src: url('https://fonts.googleapis.com/css?family=Oswald'); */
-/* } */
+ @font-face {
+     font-family: 'Oswald';
+     font-style: normal;
+     font-weight: normal;
+     src: url('Oswald-Regular.ttf');
+ }
 
-/* h1.overlay { */
-/*     border-top: 30px; */
-/*     font-family: "Oswald", sans-serif; */
-/* } */
+ h1.overlay {
+     font-size: 20pt;
+     padding-top: 45px;
+     font-family: 'Oswald', sans-serif !important;
+ }
 
-/* h4.overlay { */
-/*     border-top: 10px; */
-/*     font-family: "Oswald", sans-serif; */
-/* } */
-
-.overlay {
-    color: red;
-}
+ h4.overlay {
+     font-size: 16pt;
+     padding-top: 10px;
+     font-family: 'Oswald', sans-serif !important;
+ }
