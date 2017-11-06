@@ -54,7 +54,7 @@ function checkLinks(item){
                 var postLink = item.getElementsByClassName("_52c6")["0"].attributes[1].nodeValue;
 
                 // edit the string here to edit the overlay div HTML
-                div.innerHTML = '<center><h1 class="overlay">This article was flagged as satire. It may be unreliable.</h1><h4 class="overlay">To read, click <a href = "' + postLink +'"> here. </a> </h4></center>';
+                div.innerHTML = '<center><h1 class="overlay">This article was flagged as satire. It may be unreliable.</h1><h4 class="overlay">To read, click <a target="blank" href = "' + postLink +'"> here. </a> </h4></center>';
                 // This is where we add the div.
                 item.appendChild(div);
 
