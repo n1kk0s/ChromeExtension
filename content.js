@@ -21,6 +21,7 @@ var editedPosts = new Array();
 
 // This is where we hardcode the URLS to ban....for now
 var bannedDomains = ["https://www.facebook.com/TheOnion/"];
+var bannedReasons = ["Satire"];
 
 function cleanNewsFeed(){
     chrome.storage.sync.get("clean_news_feed", function(data){
@@ -41,6 +42,7 @@ function checkLinks(item){
     var links = item.getElementsByTagName("a");
     _.each(links, function(link){
         var href = link.href.toLowerCase();
+        var i = 0;
         _.each(bannedDomains, function(domain){
           var itemClassName = item.className.toString();
             if (href.indexOf(domain.toLowerCase()) != -1 && (itemClassName.indexOf('dimmed') == -1)){
@@ -54,11 +56,14 @@ function checkLinks(item){
                 var postLink = item.getElementsByClassName("_52c6")["0"].attributes[1].nodeValue;
 
                 // edit the string here to edit the overlay div HTML
-                div.innerHTML = '<center><h1 class="overlay">This article was flagged as satire. It may be unreliable.</h1><h4 class="overlay">To read, click <a target="blank" href = "' + postLink +'"> here. </a> </h4></center>';
+                div.innerHTML = '<center><h1 class="overlay">This article was flagged as ' + bannedReasons[i].toLowerCase()
+                + '. It may be unreliable.</h1><h4 class="overlay">To read, click <a target="blank" href = "' + postLink
+                +'"> here. </a> </h4></center>';
                 // This is where we add the div.
                 item.appendChild(div);
 
             }
+          i = i + 1;
         });
     });
 }
