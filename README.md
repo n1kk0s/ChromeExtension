@@ -1,6 +1,9 @@
 # ChromeExtension
 An extension for Google Chrome that attempts to point out biased or fake news, satire, and incorrect information.
 
+Link to Adobe XD click-through design mockup. Note: You won't be able to click through all of the designs becuase of the software.
+https://xd.adobe.com/view/40d9e696-b0ea-4729-9159-6c61def83a93
+
 ### License
 The MIT License (MIT)
 
