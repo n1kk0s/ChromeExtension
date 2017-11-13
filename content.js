@@ -20,8 +20,8 @@ style.href = chrome.extension.getURL('overlay.css');
 var editedPosts = new Array();
 
 // This is where we hardcode the URLS to ban....for now
-var bannedDomains = ["https://www.facebook.com/TheOnion/"];
-var bannedReasons = ["Satire"];
+var bannedDomains = ["https://www.facebook.com/TheOnion/", "https://www.facebook.com/infowars", "https://www.facebook.com/huffpost", "https://www.facebook.com/foxnews"];
+var bannedReasons = ["Satire", "Conspiracy", "Left Bias", "Right Bias"];
 
 function cleanNewsFeed(){
     chrome.storage.sync.get("clean_news_feed", function(data){
@@ -45,6 +45,7 @@ function checkLinks(item){
         var i = 0;
         _.each(bannedDomains, function(domain){
           var itemClassName = item.className.toString();
+          console.log(href);
             if (href.indexOf(domain.toLowerCase()) != -1 && (itemClassName.indexOf('dimmed') == -1)){
                 // edit the post here
                 editedPosts[editedPosts.length] = (item.className += ' dimmed');
