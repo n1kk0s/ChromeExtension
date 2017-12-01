@@ -24,11 +24,13 @@ h2 {
     font-size: 40px;
 }
 
-button {
+.button {
     display: block;
     margin: auto;
     font-family: "Anton";
+    color: black;
     font-size: 20px;
+    text-align: center;
     height: 30px;
     width: 75%;
     border: none;
@@ -37,10 +39,13 @@ button {
     transition: all 0.3s ease 0s;
 }
 
-button:hover {
+.button:hover {
     background: #b21409;
 }
 
+form {
+    align-items: center;
+}
 /*button:focus {   MAKES IT CHANGE WHEN CLICKED, NOT NICE
     transform: translateY(3px);
     border-bottom: 3px solid #b21409;
