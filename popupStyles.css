@@ -1,0 +1,47 @@
+
+@font-face {
+    font-family: 'Anton', sans-serif;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+html {
+    width: 300px;
+    height: 400px;
+}
+
+body {
+    background-color: #f1f1f1; /* OFF WHITE */
+    text-align: left;
+    font-family: "Open Sans Condensed";
+    font-size: 20px;
+    font-weight: bold;
+}
+
+h2 {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Anton";
+    font-size: 40px;
+}
+
+button {
+    display: block;
+    margin: auto;
+    font-family: "Anton";
+    font-size: 20px;
+    height: 30px;
+    width: 75%;
+    border: none;
+    text-decoration: none;
+    background-color: #f44336; /* RED */
+    transition: all 0.3s ease 0s;
+}
+
+button:hover {
+    background: #b21409;
+}
+
+/*button:focus {   MAKES IT CHANGE WHEN CLICKED, NOT NICE
+    transform: translateY(3px);
+    border-bottom: 3px solid #b21409;
+}*/
