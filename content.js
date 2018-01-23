@@ -52,6 +52,7 @@ function checkLinks(item){
                 editedPosts[editedPosts.length] = (item.className += ' dimmed');
                 // create an unique overlay with a link to the actual post
                 var div = document.createElement( 'div' );
+                // USE IDS CORRECTLY
                 div.id = 'overlayDiv';
 
                 // edit the string here to edit the overlay div HTML
@@ -60,6 +61,10 @@ function checkLinks(item){
                 // This is where we add the div.
                 item.appendChild(div);
 
+                div.onclick = function() {
+                    // HERE IS WHERE YOU DO THE STUFF
+                    // REMOVE DIMMED CLASS FROM DIV
+                };
             }
           i = i + 1;
         });
