@@ -49,7 +49,6 @@ function checkLinks(item){
     _.each(links, function(link) {
         var href = link.href.toLowerCase();
         var i = 0;
-
         _.each(bannedDomains, function(domain) {
             var itemClassName = item.className.toString();
             console.log(href);
