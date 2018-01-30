@@ -53,7 +53,7 @@ function checkLinks(item){
                 // create an unique overlay with a link to the actual post
                 var div = document.createElement( 'div' );
                 // USE IDS CORRECTLY
-                div.id = 'overlayDiv';
+                div.id = 'overlayDiv';// + i.toString(); // TRY TO ADD FLAG FROM LOOP TO ID AS STRING
 
                 // edit the string here to edit the overlay div HTML
                 div.innerHTML = '<center><h1 class="overlay">This article was flagged as ' + bannedReasons[i].toLowerCase()
@@ -64,6 +64,7 @@ function checkLinks(item){
                 div.onclick = function() {
                     // HERE IS WHERE YOU DO THE STUFF
                     // REMOVE DIMMED CLASS FROM DIV
+                    //document.getElementById("overlayDiv" + i.toString()).style.display = "none";
                 };
             }
           i = i + 1;
