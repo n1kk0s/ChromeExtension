@@ -4,7 +4,7 @@ var storyContainerClasses = ["_5jmm", "_5pcr"];
 
 // insert the 'dimmed' css rule into the stylesheet
 var sheet = document.styleSheets[0];
-sheet.insertRule('.dimmed:after {content: " "; z-index: 10; display: block; position: absolute; height: 100%; top: 0; left: 0; right: 0; background: rgba(255, 255, 255, 0.75); }', sheet.cssRules.length);
+sheet.insertRule('.dimmed:after {content: " "; z-index: 10; display: block; position: absolute; height: 100%; top: 0; left: 0; right: 0; background: rgba(255, 255, 255, 1); }', sheet.cssRules.length);
 sheet.insertRule('.dimmed {position: relative;}', sheet.cssRules.length);
 // overlay style sheet rules
 sheet.insertRule('.overlayDiv {position: absolute; z-index: 11; height: 100%; top: 0; left: 0; right: 0; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);}', sheet.cssRules.length);
@@ -51,13 +51,15 @@ function checkLinks(item){
         var i = 0;
         _.each(bannedDomains, function(domain) {
             var itemClassName = item.className.toString();
-            console.log(href);
+            //console.log(href);
 
             if (href.indexOf(domain.toLowerCase()) != -1 && (itemClassName.indexOf('dimmed') == -1)) {
 
                 // keep track of edited posts here
                 if (!editedPosts.includes(item.id)) {
+
                     editedPosts.push(item.id);
+
                     item.className += ' dimmed';
                     // create an unique overlay with a link to the actual post
                     var div = document.createElement( 'div' );
@@ -85,5 +87,5 @@ function checkLinks(item){
 cleanNewsFeed(); // run once on page load
 
 // debounce the function so it's not running constantly
-var scrollPlugin = _.debounce(cleanNewsFeed, 300);
+var scrollPlugin = _.debounce(cleanNewsFeed, 1000);
 document.addEventListener("scroll", scrollPlugin);
