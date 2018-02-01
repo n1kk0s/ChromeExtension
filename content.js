@@ -56,7 +56,9 @@ function checkLinks(item){
             if (href.indexOf(domain.toLowerCase()) != -1 && (itemClassName.indexOf('dimmed') == -1)) {
 
                 // keep track of edited posts here
-                if (!editedPosts.includes(item.id)) {
+                if ((!editedPosts.includes(item.id)) && (item.id.toString().length > 5)) {
+
+                  console.log(item.id + " " + href);
 
                     editedPosts.push(item.id);
 
@@ -87,5 +89,5 @@ function checkLinks(item){
 cleanNewsFeed(); // run once on page load
 
 // debounce the function so it's not running constantly
-var scrollPlugin = _.debounce(cleanNewsFeed, 1000);
+var scrollPlugin = _.debounce(cleanNewsFeed, 300);
 document.addEventListener("scroll", scrollPlugin);
