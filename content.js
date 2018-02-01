@@ -68,7 +68,7 @@ function checkLinks(item){
                     div.className = 'overlayDiv';
 
                     // edit the string here to edit the overlay div HTML
-                    div.innerHTML = '<center><h1 class="overlay">This article was flagged as ' + bannedReasons[i].toLowerCase() + '. It may be unreliable.</h1><h4 class="overlay">To read, click <a target="blank" href="#" onclick="function();"> here. </a> </h4></center>';
+                    div.innerHTML = '<center><h1 class="overlay">This article was flagged as ' + bannedReasons[i].toLowerCase() + '. It may be unreliable.</h1><h4 class="overlay">To read, click within this overlay. </a> </h4></center>';
                     // This is where we add the div.
                     item.appendChild(div);
 
