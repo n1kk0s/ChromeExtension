@@ -20,10 +20,12 @@ var editedPosts = new Array();
 
 // This is where we hardcode the URLS to ban....for now
 var bannedDomains = ["https://www.facebook.com/TheOnion/", "https://www.facebook.com/infowars", "https://www.facebook.com/democraticmom", "prntly.com",
-  "https://www.facebook.com/yournewswire", "https://www.facebook.com/clashdaily", "naturalnews.com", "https://www.facebook.com/thebabylonbee"];
+  "https://www.facebook.com/yournewswire", "https://www.facebook.com/clashdaily", "naturalnews.com", "https://www.facebook.com/thebabylonbee",
+  "dailycaller.com", "palmerreport.com"];
 
 var bannedReasons = ["Satire", "Conspiracy", "Incorrect", "Fake",
-  "Fake", "Fake/Conspiracy", "Fake Science/Conspiracy", "Satire"];
+  "Fake", "Fake/Conspiracy", "Fake Science/Conspiracy", "Satire",
+  "Clickbait/Bias", "Fake/Bias"];
 
 function cleanNewsFeed(){
     chrome.storage.sync.get("clean_news_feed", function(data){
